@@ -29,6 +29,13 @@
             ]
           },
           {
+            "group": "Minecraft",
+            "pages": [
+              "minecraft/offline-mode",
+              "essentials/navigation"
+            ]
+          },
+          {
             "group": "Customization",
             "pages": [
               "essentials/settings",

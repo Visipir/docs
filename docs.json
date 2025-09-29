@@ -24,7 +24,7 @@
           {
             "group": "Billing",
             "pages": [
-              "essentials/settings",
+              "billing/buy-product",
               "essentials/navigation"
             ]
           },

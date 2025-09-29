@@ -31,8 +31,11 @@
           {
             "group": "Minecraft",
             "pages": [
-              "minecraft/offline-mode.mdx",
-              "essentials/navigation"
+              "minecraft/offline-mode",
+              "minecraft/connecting-domain",
+              "minecraft/installing-plugins",
+              "minecraft/installing-mods",
+              "minecraft/installing-modpack"
             ]
           },
           {

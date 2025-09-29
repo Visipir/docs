@@ -1,0 +1,36 @@
+---
+title: "Installing Mods"
+description: "This guide will show you how to install mods on your Minecraft server. This process is different from installing plugins."
+---
+
+**Key Difference: Mods vs. Plugins**
+
+- Mods modify the game's core and MUST be installed on both the server AND on every player's computer.
+- Plugins are server-side only; players don't need to install anything.
+
+**Mandatory Prerequisites**
+
+1. Server Must Use a Mod Loader Your server MUST run on Forge, Fabric, or Quilt. Vanilla or Spigot/Paper servers cannot run mods. You can usually select your server type in the "Startup" tab in Pterodactyl.
+2. Players Must Also Install Mods Every player who wants to join MUST install the same mod loader (Forge/Fabric) and the exact same mods on their computer.
+
+**Steps to Install Mods on the Server**
+
+1. Find and Download Mods Download your desired mod files (they have a `.jar` extension) from a trusted source.
+   - Trusted Sources: CurseForge, Modrinth.
+   - IMPORTANT: Pay close attention to the Minecraft Version (e.g., 1.20.1) and the Mod Loader (Forge/Fabric) that the mod requires. Everything must match.
+2. Open the File Manager In your Pterodactyl Panel, navigate to your server and click the "File Manager" tab.
+3. Navigate to the `mods` Folder Find and open the folder named `mods`.
+   - If this folder doesn't exist, your server type is likely incorrect (not Forge/Fabric). You can try creating it manually by clicking "New Folder".
+4. Upload the Mod Files Inside the `mods` folder, click "Upload" and select all the mod `.jar` files you downloaded.
+5. Restart the Server Go back to the "Console" page and click "Restart". The server must be restarted to load all the new mods.
+
+**Mandatory Steps for Players**
+
+- Ensure all players have installed Forge/Fabric on their computers.
+- Players must copy the exact same mod `.jar` files into their `.minecraft/mods` folder in their Minecraft installation directory.
+- Players must launch the game using the Forge/Fabric profile from the Minecraft Launcher.
+
+**Verification**
+
+- If a player tries to join without the correct mods, they will receive an error like _"Incompatible FML modded server"_ or _"mismatched mod channel list"_.
+- You can check the Console log to ensure all mods have loaded successfully without errors.

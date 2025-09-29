@@ -1,0 +1,30 @@
+---
+title: "Installing Plugins"
+description: "This guide will show you how to add plugins to your Minecraft server."
+---
+
+**Compatible Server Type**
+
+Plugins ONLY work on servers that support them, such as Paper, Spigot, Bukkit, or Purpur. Plugins will NOT work on a Vanilla Minecraft server (the official version from Mojang).
+
+> Make sure your server type is set correctly in the "Server Type" tab in your panel.
+
+**Steps to Install a Plugin**
+
+1. Find and Download a Plugin Download your desired plugin file from a trusted source. Plugin files always have a `.jar` extension.
+   - Trusted Sources: SpigotMC, Modrinth, BukkitDev (curseforge).
+   - Warning: Avoid downloading from random websites to prevent malware.
+2. Open the File Manager In your Pterodactyl Panel, navigate to your server and click the "File Manager" tab.
+3. Navigate to the `plugins` Folder Find and open the folder named `plugins`.
+   - If this folder doesn't exist, your server type is likely incorrect (not Paper/Spigot). You can try creating it manually by clicking "New Folder".
+4. Upload the Plugin File Inside the `plugins` folder, click the "Upload" button and select the plugin `.jar` file you downloaded. Wait for the upload to complete.
+5. Restart the Server Go back to the "Console" page and click "Restart". The server must be restarted to load the new plugin.
+
+**Verification and Configuration**
+
+- Verification:
+  - Watch the Console log as the server starts up. You should see a message like `[PluginName] enabling...`.
+  - Log in to the game and type the command `/plugins` or `/pl`. The active plugin should appear in the list.
+- Configuration:
+  - After the server runs once with the plugin, a configuration folder for it will be automatically created inside the `plugins` folder (e.g., `/plugins/EssentialsX/`).
+  - You can edit the `config.yml` file within that folder to change the plugin's settings.

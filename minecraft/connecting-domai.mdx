@@ -1,0 +1,43 @@
+---
+title: "Connecting Domain"
+description: "This guide will walk you through connecting a custom domain name to your Minecraft server, so players no longer need to type the IP address."
+---
+
+**1. Get Your Server IP and Port**
+
+First, find the Numeric IP Address and Port of your server from the Pterodactyl Panel. For example: `123.45.67.89:25565`.
+
+- IP: `123.45.67.89`
+- Port: `25565`
+
+**2. Log In to Your Domain's DNS Panel**
+
+Go to the website where you purchased your domain (e.g., Namecheap, GoDaddy, Cloudflare) and navigate to its DNS management panel.
+
+**3. Configure DNS Records**
+
+You need to create two records: an A Record and an SRV Record.
+
+Step 1: Create the A Record (Same as above)
+
+- Type: `A`
+- Name/Host: `play`
+- Value/Points to: Your server's IP Address (`123.45.67.89`).
+
+Step 2: Create the SRV Record This automatically handles the port redirection.
+
+- Type: `SRV`
+- Service: `_minecraft`
+- Protocol: `_tcp`
+- Name/Host: Enter the subdomain you just created (e.g., `play`).
+- Target: Enter the full subdomain address (`play.yourdomain.com`).
+- Priority: `0`
+- Weight: `5`
+- Port: Enter your server's Port (`25577`).
+- TTL: Leave it as default.
+
+Once saved, players can still connect using `play.yourdomain.com` (without typing the port).
+
+**4. Wait for Propagation**
+
+DNS changes need time to spread across the globe, usually taking anywhere from a few minutes to 24 hours. Be patient. Afterwards, you can try connecting to your server in Minecraft using your new domain.

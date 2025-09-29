@@ -1,0 +1,32 @@
+---
+title: "Installing Modpack"
+description: "This guide shows you how to install a pre-made modpack on your Minecraft server."
+---
+
+Modpacks typically have two download types:
+
+- Client Pack: Installed on a player's computer, usually via a launcher app like CurseForge or Prism.
+- Server Pack: A special `.zip` file containing all the necessary files to run the server. This is the one you must use.
+
+**Steps to Install a Modpack**
+
+1. Download the "Server Pack"
+   - Go to the modpack's page on a site like CurseForge or Modrinth.
+   - Find the "Files" or "Versions" tab.
+   - Locate the version you want and look for an additional download link named "Server Pack" or "Server Files". Download this `.zip` file.
+2. VERY IMPORTANT: Clean Your Server To avoid conflicts, you must start with a clean server.
+   - Create a Backup of your server if it has important data.
+   - In the File Manager, select all existing folders and files (like `mods`, `config`, `world`, `server.jar`, etc.) and Delete them.
+3. Upload and Unarchive the Server Pack
+   - In the now-empty File Manager, click "Upload" and select the Server Pack `.zip` file you downloaded.
+   - Once the upload is complete, click the three-dots icon (`...`) next to the `.zip` file and select "Unarchive" or "Decompress". This will extract the modpack's contents onto your server.
+4. Check the Startup Configuration This is the most crucial step.
+   - Look inside the newly extracted folders and find the name of the server `.jar` file. It's usually a Forge or Fabric file with a long name, for example: `forge-1.19.2-43.2.0.jar`.
+   - Go to the "Startup" tab in Pterodactyl.
+   - In the "Server JAR File" field, replace `server.jar` (or whatever the default is) with the exact `.jar` file name from your modpack. Example: `forge-1.19.2-43.2.0.jar`.
+5. Accept the EULA (If Necessary) Some server packs may require you to accept the EULA manually. Open the `eula.txt` file, change `eula=false` to `eula=true`, and save it.
+6. Start the Server Go back to the "Console" and click "Start". The first startup for a large modpack can be very slow (5-15 minutes), so be patient. Monitor the console to see the progress.
+
+**For Players**
+
+Players must download and install the exact same modpack version using a launcher app like the CurseForge App, Prism Launcher, ATLauncher, or the Modrinth App to be able to join.

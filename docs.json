@@ -39,6 +39,12 @@
             ]
           },
           {
+            "group": "Minecraft Plugins",
+            "pages": [
+              "mc-plugins/auth"
+            ]
+          },
+          {
             "group": "Customization",
             "pages": [
               "essentials/settings",

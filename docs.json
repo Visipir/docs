@@ -41,7 +41,10 @@
           {
             "group": "Minecraft Plugins",
             "pages": [
-              "mc-plugins/auth"
+              "mc-plugins/auth",
+              "mc-plugins/geysermc",
+              "mc-plugins/discord-srv",
+              "mc-plugins/via-version"
             ]
           },
           {

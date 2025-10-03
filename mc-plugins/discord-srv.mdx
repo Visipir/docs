@@ -1,0 +1,84 @@
+---
+title: "DiscordSRV Installation Guide"
+description: "This guide will show you how to connect your Minecraft server chat to a Discord channel using the DiscordSRV plugin."
+icon: "envelope"
+---
+
+## **DiscordSRV Installation Guide**
+
+This guide will show you how to connect your Minecraft server chat to a Discord channel using the DiscordSRV plugin. This allows players in-game and members in Discord to communicate with each other seamlessly.
+
+### **Prerequisites**
+
+- A Minecraft server running **Paper**, **Spigot**, or a similar fork that supports plugins.
+- Access to your server's control panel on Sapphire Cloud.
+- Administrator permissions on a **Discord server** you wish to link.
+
+### **Step 1: Create Your Discord Bot**
+
+First, you need to create a bot application in Discord that will act as the bridge.
+
+1. **Go to the Discord Developer Portal**: Open your browser and navigate to https://discord.com/developers/applications.
+2. **Create a New Application**: Click the **New Application** button and give it a name (like your server's name). Agree to the terms of service and click **Create**.
+3. **Create a Bot User**: In the left-hand menu, click on the **Bot** tab. Click the **Add Bot** button, then **Yes, do it!**.
+4. **Enable Privileged Intents**: Stay on the Bot page and scroll down to the **Privileged Gateway Intents** section. Enable both the **SERVER MEMBERS INTENT** and the **MESSAGE CONTENT INTENT**. This is required for the bot to read messages and see who is on the server.
+5. **Copy the Bot Token**: At the top of the Bot page, click the **Reset Token** button (and confirm) to reveal your bot's token. Click **Copy** to save it to your clipboard. **Treat this token like a password; do not share it with anyone.** You'll need it in a later step.
+
+### **Step 2: Invite the Bot to Your Discord Server**
+
+Now you need to add the bot you just created to your Discord server.
+
+1. **Go to the OAuth2 URL Generator**: In the Discord Developer Portal, navigate to **OAuth2 \> URL Generator** from the left-hand menu.
+2. **Select Scopes**: In the "Scopes" box, check the boxes for `bot` and `applications.commands`.
+3. **Select Permissions**: A new "Bot Permissions" box will appear. Check the **Administrator** box. This is the simplest method and ensures the bot has all the permissions it needs to function.
+4. **Generate and Use the URL**: Scroll down and copy the **Generated URL**. Paste this URL into a new browser tab and follow the prompts to add the bot to your desired Discord server. You should see a message in your server that the bot has joined.
+
+### **Step 3: Download and Install DiscordSRV**
+
+It's time to add the plugin to your Minecraft server.
+
+1. **Download DiscordSRV**: Go to the official SpigotMC page for DiscordSRV: https://www.spigotmc.org/resources/discordsrv.18494/. Click **Download Now** to get the latest `.jar` file.
+2. **Upload to Your Server**:
+   - Log in to the Sapphire Cloud panel at [**https://panel.sapphire-cloud.org**](https://panel.sapphire-cloud.org).
+   - Navigate to your server's **Files** tab.
+   - Open the `plugins` folder.
+   - Click **Upload** and select the `DiscordSRV-Build-XXX.jar` file you just downloaded.
+3. **Restart the Server**: Go to the **Console** tab and **Restart** your server. This will generate the necessary configuration files for DiscordSRV.
+
+### **Step 4: Configure the Plugin**
+
+This is the final and most important step, where you link the plugin to your bot.
+
+1. **Get Your Discord Channel ID**:
+   - In your Discord client, go to **User Settings \> Advanced**.
+   - Enable **Developer Mode**.
+   - Go back to your server and right-click on the text channel you want to link with your Minecraft chat (e.g., `#general-chat`).
+   - Click **Copy Channel ID**. Save this somewhere safe.
+2. **Edit the Configuration File**:
+   - In the Sapphire Cloud panel, go back to the **Files** tab.
+   - Navigate to the `plugins/DiscordSRV` folder.
+   - Find and open the `config.yml` file to edit it.
+3. **Add Your Bot Token and Channel ID**:
+   - Find the line `DiscordBotToken: "BOT_TOKEN_HERE"` and replace `BOT_TOKEN_HERE` with the bot token you copied in Step 1.
+   - Find the line `Channels: {"global": "000000000000000000"}` and replace `000000000000000000` with the channel ID you copied.
+
+It should look something like this:
+
+```YAML config.yml
+# The token the bot will use to log in. This is found on your Discord application's page.
+# Treat your token like a password, and don't share it with anyone!
+DiscordBotToken: "YOUR_UNIQUE_BOT_TOKEN_PASTED_HERE"
+
+# This is the list of channels used for game chat.
+# The key is the name of the channel ("global" is the default)
+# The value is the channel's ID from Discord.
+Channels: {"global": "YOUR_UNIQUE_CHANNEL_ID_PASTED_HERE"}
+```
+
+4. **Save the File**: Click the **Save Content** button.
+
+### **Step 5: Final Restart and Verification**
+
+1. **Restart the Server**: Go to the **Console** and **Restart** your server one last time to load the new configuration.
+2. **Check Discord**: Look at your Discord server. The bot should now appear as "online."
+3. **Test the Link**: Type something in your in-game Minecraft chat. It should instantly appear in the linked Discord channel, sent by the bot. Try typing a message in the Discord channel; it should appear in the Minecraft chat.

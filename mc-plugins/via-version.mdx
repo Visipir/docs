@@ -1,0 +1,65 @@
+---
+title: "Multi-Version Support"
+description: "This guide explains how to install a combination of plugins that will allow players using a wide range of Minecraft versions"
+icon: "calendar"
+---
+
+### **Understanding the Plugins**
+
+This setup uses three plugins that work together in a chain. You need all of them for maximum compatibility.
+
+- **ViaVersion**: This is the **core plugin**. Its primary job is to allow players on newer versions of Minecraft to connect to your server. It acts as the base for the other plugins.
+- **ViaBackwards**: This is an **add-on for ViaVersion**. It enables players on older versions of Minecraft (typically back to 1.9) to connect to your newer server.
+- **ViaRewind**: This is an **add-on for ViaBackwards**. It extends compatibility even further back, allowing players on very old versions (like 1.8 and 1.7) to connect.
+
+The chain of support looks like this:
+
+Your Server (Latest Version) \<- ViaVersion \<- ViaBackwards \<- ViaRewind -\> Older Clients
+
+### **Step 1: Download the Plugins**
+
+You will need to download the latest `.jar` file for all three plugins.
+
+1. **ViaVersion**: https://www.spigotmc.org/resources/viaversion.19254/
+2. **ViaBackwards**: https://www.spigotmc.org/resources/viabackwards.27448/
+3. **ViaRewind**: https://www.spigotmc.org/resources/viarewind.52109/
+
+Click the "Download Now" button on each page and save the files to your computer.
+
+### **Step 2: Install the Plugins on Your Server**
+
+1. Log in to the Sapphire Cloud panel at [**https://panel.sapphire-cloud.org**](https://panel.sapphire-cloud.org).
+2. Navigate to your server's **Files** tab.
+3. Open the `plugins` folder.
+4. Click the **Upload** button and upload all three `.jar` files you downloaded:
+   - `ViaVersion-x.x.x.jar`
+   - `ViaBackwards-x.x.x.jar`
+   - `ViaRewind-x.x.x.jar`
+
+### **Step 3: Restart and Verify**
+
+One of the best things about this plugin suite is that it requires **no configuration** to work out of the box.
+
+1. Navigate to the **Console** page in your server panel.
+2. Click the **Restart** button to fully reboot your server.
+3. As the server starts up, watch the console. You should see messages from all three plugins indicating that they have been successfully enabled.
+
+```
+[ViaVersion] Loading ViaVersion v...
+[ViaBackwards] Loading ViaBackwards v...
+[ViaRewind] Loading ViaRewind v...
+```
+
+The installation is now complete! Players from most modern and legacy versions of Minecraft should be able to join your server.
+
+### **Important Notes & FAQ**
+
+- Do I need to configure anything?
+
+  For standard functionality, no. The plugins are designed to work automatically. Advanced users can explore the config.yml files created in each plugin's folder for specific tweaks, but this is not necessary.
+- Why should my server be on the latest version?
+
+  Running the latest server software (like Paper 1.20.4) ensures you have the best performance, the most recent security patches, and access to all of Minecraft's newest features. The plugins will handle the task of translating data for older clients so they can interact with the new content.
+- Are there any limitations or bugs?
+
+  Translating between major Minecraft updates is a complex task. Players on very old versions (like 1.8) may experience some minor visual glitches or gameplay differences, especially with newer features like modern combat mechanics or blocks that don't exist in their version. However, the plugins do an excellent job of making the experience as smooth as possible.

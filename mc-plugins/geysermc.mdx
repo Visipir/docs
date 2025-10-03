@@ -1,0 +1,91 @@
+---
+title: "GeyserMC Plugins"
+description: "This guide will walk you through the process of installing GeyserMC on your Java Edition server."
+icon: "compass"
+---
+
+### **Introduction: What are GeyserMC and Floodgate?**
+
+- **GeyserMC:** A proxy that translates packets between Minecraft: Java Edition and Bedrock Edition. It's the core bridge that makes cross-play possible.
+- **Floodgate:** A companion plugin for GeyserMC. It allows Bedrock players to join a server without needing to own a paid Java Edition account, creating a seamless experience.
+
+For the best results, you should install **both** GeyserMC and Floodgate.
+
+### **Prerequisites**
+
+- Your server must be running a server type that supports plugins, such as **Paper**, **Spigot**, or their forks.
+- You must have an **additional port** allocated to your server. Your server has a primary port for Java players (e.g., 25565), and you will need a second, different port for Bedrock players to connect through.
+
+### **Step 1: Find Your Allocated Geyser Port**
+
+Before downloading anything, you need to identify the port that Bedrock players will use.
+
+1. Log in to the Sapphire Cloud panel at [**https://panel.sapphire-cloud.org**](https://panel.sapphire-cloud.org/).
+2. Select the server you want to install GeyserMC on.
+3. In the navigation menu, click on **Network**.
+4. You will see a list of your server's allocated ports. Your primary port is the main one for Java connections. Note down one of the **additional ports** (e.g., `25577`, `19132`, etc.). This will be your Geyser port.
+
+_(This is a generic example; your panel may look different)_
+
+### **Step 2: Download GeyserMC and Floodgate**
+
+1. Go to the official GeyserMC download page: [**https://geysermc.org/download**](https://geysermc.org/download).
+2. Download the latest version of **Geyser** for your platform (e.g., `Geyser-Spigot.jar`).
+3. Download the latest version of **Floodgate** for your platform (e.g., `Floodgate-Spigot.jar`).
+
+You should now have two `.jar` files.
+
+### **Step 3: Upload and Install the Plugins**
+
+1. In the Sapphire Cloud panel, navigate to the **Files** tab.
+2. Open the `plugins` folder.
+3. Click the **Upload** button and upload both `Geyser-Spigot.jar` and `Floodgate-Spigot.jar`.
+4. Once the uploads are complete, navigate to the **Console** page and **Restart** your server.
+
+This first restart will generate the necessary configuration files for both plugins.
+
+### **Step 4: Configure GeyserMC**
+
+This is the most important step. You need to tell Geyser which port to use for Bedrock connections.
+
+1. Go back to the **Files** manager.
+2. Navigate to `plugins/Geyser-Spigot/`.
+3. Find the file named `config.yml` and click to edit it.
+4. Scroll down to the `bedrock:` section.
+5. Change the `port:` value from the default (`19132`) to the **port you noted down in Step 1**.
+6. Ensure the `address:` is set to `0.0.0.0`. This allows it to listen on the correct panel IP.
+
+Here is what the section should look like:
+
+```YAML config.yml
+bedrock:
+# The IP address that Geyser will listen on.
+# Generally, you should NOT change this.
+address: 0.0.0.0
+
+# The port that Geyser will listen on for Bedrock players.
+# This MUST be the additional port allocated to your server in the panel.
+port: 25577 # <--- CHANGE THIS to your allocated port from Step 1
+```
+
+7. Click **Save Content**.
+
+### **Step 5: Final Restart and Connect**
+
+1. Go to the **Console** and **Restart** your server one more time to apply the configuration changes.
+2. Your server is now ready for cross-play!
+
+**How Players Connect:**
+
+- **Java Edition Players:** Connect using your server's normal IP and primary port (e.g., `play.yourserver.com` or `123.45.67.89:25565`).
+- **Bedrock Edition Players:** Connect using your server's IP and the **Geyser port** you configured (e.g., Server Address: `123.45.67.89`, Port: `25577`).
+
+### **Common Issues**
+
+- **Bedrock players can't connect:**
+  - Double-check that the `port` in Geyser's `config.yml` exactly matches the additional port shown in your panel's **Network** tab.
+  - Ensure you have restarted the server _after_ saving the configuration file.
+- **Getting an error about "outdated client/server":**
+  - Make sure you have downloaded the latest versions of GeyserMC and Floodgate. Geyser is updated frequently to support new Minecraft versions.
+- **Bedrock player skins are not showing:**
+  - This is expected for some setups. You may need to install an additional skin-restoring plugin if you wish to see Bedrock skins.

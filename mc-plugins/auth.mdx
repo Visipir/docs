@@ -1,0 +1,138 @@
+---
+title: "Installing Auth Plugins"
+description: "A step-by-step guide to securing your offline Minecraft server."
+icon: "user"
+---
+
+When a Minecraft server is set to `online-mode=false` in the `server.properties` file, it does not verify player accounts with Mojang's servers. This state is commonly known as **"offline mode"** and allows players who do not own a premium Minecraft account to join. However, this creates a **major security risk**: anyone can log in using any username, including an admin's or operator's account.
+
+To mitigate this, you **must** use an authentication plugin. This plugin forces every player to register with a password on their first join and log in with that password every time they return.
+
+This document will cover two popular plugins: **nLogin** and **LibreLogin**.
+
+### **General Plugin Installation Steps**
+The installation process is the same for both plugins. Follow the steps below:
+
+1. **Download the Plugin**:
+   - Go to the SpigotMC website and download the `.jar` file for your chosen plugin.
+     - **nLogin**: [https://www.spigotmc.org/resources/nlogin.34233/](https://www.google.com/search?q=https://www.spigotmc.org/resources/nlogin.34233/&authuser=3)
+     - **LibreLogin**: [https://www.spigotmc.org/resources/librelogin.86143/](https://www.google.com/search?q=https://www.spigotmc.org/resources/librelogin.86143/&authuser=3)
+2. **Log in to the Control Panel**:
+   - Open your server panel at [**panel.sapphire-cloud.org**](https://panel.sapphire-cloud.org/) and log in.
+3. **Select Your Server**:
+   - From the server list, click on the server where you want to install the plugin.
+4. **Access the File Manager**:
+   - In the server's navigation menu, select the **Files** menu.
+5. **Open the Plugins Folder**:
+   - Find and enter the `plugins` folder. This is where all server plugins are stored.
+6. **Upload the Plugin**:
+   - Click the **Upload** button and select the plugin's `.jar` file that you just downloaded. Wait for the upload to complete.
+7. **Restart the Server**:
+   - Return to the **Console** page and click the **Restart** button. This will load the new plugin and create its configuration folder.
+
+After the server is back online, the authentication plugin is active. Now, let's discuss the details and setup for each plugin.
+
+## **1. nLogin**
+nLogin is a very popular, stable, and feature-rich authentication plugin. It has been used by thousands of servers and is proven to be reliable.
+
+### **Explanation**
+nLogin provides a robust `/register <password> <confirmPassword>` and `/login <password>` system. The plugin focuses on security with many additional features to protect your server from bots and account theft.
+
+### **Advantages of nLogin**
+- **Very Feature-Rich**: Includes CAPTCHA protection, anti-bruteforce, name restrictions, and other security features.
+- **Highly Customizable**: Almost all messages and settings can be changed to your liking.
+- **Database Support**: Supports SQLite (default) and MySQL for storing player data.
+- **Session System**: Players don't need to log in repeatedly if they rejoin within a short time.
+
+### **Disadvantages of nLogin**
+- **Complex Configuration**: The vast number of options can be confusing for new server administrators.
+- **Slightly Heavier**: Its many features make it a bit heavier than simpler alternatives.
+- **Infrequently Updated**: While it still works well on the latest versions, the plugin is not updated often.
+
+### **How to Set Up nLogin**
+After you restart the server, a folder named `nLogin` will appear inside the `plugins` folder.
+
+1. Open the `plugins/nLogin` folder.
+2. The main file to edit is `config.yml`. Open this file.
+3. **Some important settings you can change:**
+   - **Changing Messages**: Open the `messages.yml` file to translate or change all messages sent by the plugin to players.
+   - **Password Requirements**:
+    ```YAML
+    registration:
+           password:
+             minLength: 6 # Set the minimum password length
+             maxLength: 32 # Set the maximum password length
+         
+    ```
+   - **Enabling Login Sessions**: To prevent players from needing to log in every time.
+
+     YAML
+
+     ```
+     sessions:
+       enabled: true # Change to 'true' to enable
+       timeout: 1800 # Time in seconds (1800 seconds = 30 minutes)
+       verifyIp: true # The session will expire if the player's IP changes
+     
+     ```
+4. After you finish editing, save the `config.yml` file and type `nlogin reload` in the server console or restart the server to apply the changes.
+
+## **2. LibreLogin**
+LibreLogin is a more modern, lightweight, and simpler alternative to nLogin. It's designed to be easy to use without sacrificing essential security features.
+
+### **Explanation**
+Just like nLogin, LibreLogin provides a registration and login system. Its main focus is on performance, ease of use, and a modern design, both in its code and configuration.
+
+### **Advantages of LibreLogin**
+- **Lightweight and Fast**: Designed for maximum performance, making it suitable for servers with limited resources.
+- **Simple Configuration**: The `config.yml` file is very easy to understand and edit.
+- **Modern**: It is actively developed and uses newer technologies.
+- **Supports Modern Hashing**: Uses the highly secure Argon2 hashing algorithm for passwords.
+
+### **Disadvantages of LibreLogin**
+- **Fewer Features**: Lacks the extensive additional security features found in nLogin (e.g., no built-in CAPTCHA).
+- **Less Suited for Large Servers**: Especially those that require complex, layered security features.
+
+### **How to Set Up LibreLogin**
+After restarting the server, a `LibreLogin` folder will appear in the `plugins` folder.
+
+1. Open the `plugins/LibreLogin` folder.
+2. Edit the `config.yml` file. Most default settings are good enough, but you might want to change a few things.
+3. **Some important settings:**
+   - **Changing Messages**: Just like nLogin, all messages are in the `messages.yml` file. You can translate them as needed.
+   - **Session Duration**:
+
+     YAML
+
+     ```
+     session:
+       enabled: true # Usually true by default
+       timeout: 30 # Time in minutes
+     
+     ```
+   - **Password Security**:
+
+     YAML
+
+     ```
+     security:
+       password:
+         min-length: 8 # Set the minimum password length
+     
+     ```
+   - **Registration Limit per IP**: To prevent bots.
+
+     YAML
+
+     ```
+     security:
+       max-registrations-per-ip: 2 # Set the maximum number of accounts that can be registered from one IP address
+     
+     ```
+4. Save your changes to `config.yml`. In-game, you can use the command `/librelogin reload` (requires OP privileges) or simply restart the server.
+
+### **Conclusion: Which One Should You Choose?**
+- Choose **nLogin** if you need **comprehensive security features**, deep customization, and don't mind a slightly more complex configuration.
+- Choose **LibreLogin** if you want a **lightweight, fast, modern, and easy-to-setup** plugin for a small to medium-sized server.
+
+---

@@ -57,7 +57,7 @@ After you restart the server, a folder named `nLogin` will appear inside the `pl
 3. **Some important settings you can change:**
    - **Changing Messages**: Open the `messages.yml` file to translate or change all messages sent by the plugin to players.
    - **Password Requirements**:
-    ```YAML
+    ```YAML Password Requirements
     registration:
            password:
              minLength: 6 # Set the minimum password length
@@ -65,16 +65,12 @@ After you restart the server, a folder named `nLogin` will appear inside the `pl
          
     ```
    - **Enabling Login Sessions**: To prevent players from needing to log in every time.
-
-     YAML
-
-     ```
+    ```YAML config.yml
      sessions:
        enabled: true # Change to 'true' to enable
        timeout: 1800 # Time in seconds (1800 seconds = 30 minutes)
        verifyIp: true # The session will expire if the player's IP changes
-     
-     ```
+    ```
 4. After you finish editing, save the `config.yml` file and type `nlogin reload` in the server console or restart the server to apply the changes.
 
 ## **2. LibreLogin**
@@ -101,34 +97,22 @@ After restarting the server, a `LibreLogin` folder will appear in the `plugins` 
 3. **Some important settings:**
    - **Changing Messages**: Just like nLogin, all messages are in the `messages.yml` file. You can translate them as needed.
    - **Session Duration**:
-
-     YAML
-
-     ```
+    ```YAML config.yml
      session:
        enabled: true # Usually true by default
        timeout: 30 # Time in minutes
-     
-     ```
+    ```
    - **Password Security**:
-
-     YAML
-
-     ```
+    ```YAML config.yml
      security:
        password:
          min-length: 8 # Set the minimum password length
-     
-     ```
+    ```
    - **Registration Limit per IP**: To prevent bots.
-
-     YAML
-
-     ```
+    ```YAML config.yml
      security:
        max-registrations-per-ip: 2 # Set the maximum number of accounts that can be registered from one IP address
-     
-     ```
+    ```
 4. Save your changes to `config.yml`. In-game, you can use the command `/librelogin reload` (requires OP privileges) or simply restart the server.
 
 ### **Conclusion: Which One Should You Choose?**

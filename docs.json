@@ -15,7 +15,44 @@
         "groups": [
           {
             "group": "Getting started",
-            "pages": ["en/overview", "en/quickstart", "en/development"]
+            "pages": [
+              "en/index",
+              "en/quickstart",
+              "en/development"
+            ]
+          },
+          {
+            "group": "Billing",
+            "pages": [
+              "en/billing/buy-product",
+              "en/essentials/navigation"
+            ]
+          },
+          {
+            "group": "Minecraft",
+            "pages": [
+              "en/minecraft/offline-mode",
+              "en/minecraft/connecting-domain",
+              "en/minecraft/installing-plugins",
+              "en/minecraft/installing-mods",
+              "en/minecraft/installing-modpack"
+            ]
+          },
+          {
+            "group": "Minecraft Plugins",
+            "pages": [
+              "en/mc-plugins/auth",
+              "en/mc-plugins/geysermc",
+              "en/mc-plugins/discord-srv",
+              "en/mc-plugins/via-version"
+            ]
+          },
+          {
+            "group": "Customization",
+            "pages": [
+              "en/essentials/settings",
+              "en/essentials/navigation"
+            ]
           }
         ]
       },
@@ -24,91 +61,10 @@
         "groups": [
           {
             "group": "Getting started",
-            "pages": ["es/overview", "es/quickstart", "es/development"]
-          }
-        ]
-      }
-    ],
-    "tabs": [
-      {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting started",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Billing",
-            "pages": [
-              "billing/buy-product",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Minecraft",
-            "pages": [
-              "minecraft/offline-mode",
-              "minecraft/connecting-domain",
-              "minecraft/installing-plugins",
-              "minecraft/installing-mods",
-              "minecraft/installing-modpack"
-            ]
-          },
-          {
-            "group": "Minecraft Plugins",
-            "pages": [
-              "mc-plugins/auth",
-              "mc-plugins/geysermc",
-              "mc-plugins/discord-srv",
-              "mc-plugins/via-version"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "id/overview",
+              "id/quickstart",
+              "id/development"
             ]
           }
         ]
@@ -148,15 +104,15 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {

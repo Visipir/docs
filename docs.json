@@ -62,7 +62,7 @@
           {
             "group": "Getting started",
             "pages": [
-              "id/overview",
+              "id/index",
               "id/quickstart",
               "id/development"
             ]

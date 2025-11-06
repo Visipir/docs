@@ -1,0 +1,43 @@
+---
+title: "Menghubungkan Domain"
+description: "Panduan ini akan memandu Anda menghubungkan nama domain kustom ke server Minecraft Anda, sehingga pemain tidak perlu lagi mengetik alamat IP."
+---
+
+**1. Dapatkan IP dan Port Server Anda**
+
+Pertama, temukan Alamat IP Numerik dan Port server Anda dari Panel Pterodactyl. Contohnya: `123.45.67.89:25565`.
+
+- IP: `123.45.67.89`
+- Port: `25565`
+
+**2. Masuk ke Panel DNS Domain Anda**
+
+Buka situs web tempat Anda membeli domain (misalnya, Namecheap, GoDaddy, Cloudflare) dan navigasikan ke panel manajemen DNS-nya.
+
+**3. Konfigurasi Record DNS**
+
+Anda perlu membuat dua record: A Record dan SRV Record.
+
+Langkah 1: Buat A Record (Sama seperti di atas)
+
+- Tipe: `A`
+- Nama/Host: `play`
+- Value/Mengarahkan ke: Alamat IP server Anda (`123.45.67.89`).
+
+Langkah 2: Buat SRV Record Ini secara otomatis menangani pengalihan port.
+
+- Tipe: `SRV`
+- Service: `_minecraft`
+- Protocol: `_tcp`
+- Nama/Host: Masukkan subdomain yang baru saja Anda buat (misalnya, `play`).
+- Target: Masukkan alamat subdomain lengkap (`play.yourdomain.com`).
+- Priority: `0`
+- Weight: `5`
+- Port: Masukkan Port server Anda (`25577`).
+- TTL: Biarkan default.
+
+Setelah disimpan, pemain tetap dapat terhubung menggunakan `play.yourdomain.com` (tanpa mengetik port).
+
+**4. Tunggu Propagasi**
+
+Perubahan DNS memerlukan waktu untuk menyebar ke seluruh dunia, biasanya memakan waktu beberapa menit hingga 24 jam. Bersabarlah. Setelah itu, Anda dapat mencoba menghubungkan ke server Anda di Minecraft menggunakan domain baru Anda.

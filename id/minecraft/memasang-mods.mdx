@@ -1,0 +1,41 @@
+---
+title: "Menginstal Mod"
+description: "Panduan ini akan menunjukkan cara menginstal mod di server Minecraft Anda. Proses ini berbeda dengan menginstal plugin."
+icon: "gears"
+---
+
+**Perbedaan Utama: Mod vs. Plugin**
+
+- Mod memodifikasi inti game dan HARUS diinstal di server DAN di komputer setiap pemain.
+- Plugin hanya bekerja di sisi server; pemain tidak perlu menginstal apa pun.
+
+**Prasyarat Wajib**
+
+1. Server Harus Menggunakan Mod Loader Server Anda HARUS berjalan di Forge, Fabric, atau Quilt. Server Vanilla atau Spigot/Paper tidak dapat menjalankan mod. Anda biasanya dapat memilih tipe server di tab "Startup" di Pterodactyl.
+2. Pemain Juga Harus Menginstal Mod Setiap pemain yang ingin bergabung HARUS menginstal mod loader yang sama (Forge/Fabric) dan mod yang sama persis di komputer mereka.
+
+**Langkah-langkah Menginstal Mod di Server**
+
+1. Cari dan Unduh Mod Unduh file mod yang Anda inginkan (ekstensinya `.jar`) dari sumber tepercaya.
+
+- Sumber Tepercaya: CurseForge, Modrinth.
+- PENTING: Perhatikan baik-baik Versi Minecraft (misalnya, 1.20.1) dan Mod Loader (Forge/Fabric) yang dibutuhkan mod tersebut. Semuanya harus cocok.
+
+2. Buka File Manager Di Panel Pterodactyl Anda, navigasikan ke server Anda dan klik tab "File Manager".
+3. Navigasi ke Folder `mods` Cari dan buka folder bernama `mods`.
+
+- Jika folder ini tidak ada, kemungkinan tipe server Anda salah (bukan Forge/Fabric). Anda dapat mencoba membuatnya secara manual dengan mengklik "New Folder".
+
+4. Unggah File Mod Di dalam folder `mods`, klik "Upload" dan pilih semua file `.jar` mod yang Anda unduh.
+5. Restart Server Kembali ke halaman "Console" dan klik "Restart". Server harus di-restart untuk memuat semua mod baru.
+
+**Langkah Wajib untuk Pemain**
+
+- Pastikan semua pemain telah menginstal Forge/Fabric di komputer mereka.
+- Pemain harus menyalin file `.jar` mod yang sama persis ke dalam folder `.minecraft/mods` di direktori instalasi Minecraft mereka.
+- Pemain harus menjalankan game menggunakan profil Forge/Fabric dari Minecraft Launcher.
+
+**Verifikasi**
+
+- Jika pemain mencoba bergabung tanpa mod yang benar, mereka akan menerima galat seperti _"Incompatible FML modded server"_ atau _"mismatched mod channel list"_.
+- Anda dapat memeriksa log Konsol untuk memastikan semua mod telah dimuat dengan sukses tanpa galat.

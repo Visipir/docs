@@ -1,0 +1,35 @@
+---
+title: "Menginstal Modpack"
+description: "Panduan ini menunjukkan cara menginstal modpack siap pakai di server Minecraft Anda."
+icon: "boxes-packing"
+---
+
+Modpack biasanya memiliki dua jenis unduhan:
+
+- Client Pack: Diinstal di komputer pemain, biasanya melalui aplikasi launcher seperti CurseForge atau Prism.
+- Server Pack: File `.zip` khusus yang berisi semua file yang diperlukan untuk menjalankan server. Ini yang harus Anda gunakan.
+
+**Langkah-langkah Menginstal Modpack**
+
+1. Unduh "Server Pack"
+   - Buka halaman modpack di situs seperti CurseForge atau Modrinth.
+   - Cari tab "Files" atau "Versions".
+   - Temukan versi yang Anda inginkan dan cari tautan unduhan tambahan bernama "Server Pack" atau "Server Files". Unduh file `.zip` ini.
+
+
+2. SANGAT PENTING: Bersihkan Server Anda Untuk menghindari konflik, Anda harus memulai dengan server yang bersih.
+   - Buat Cadangan (Backup) server Anda jika memiliki data penting.
+   - Di File Manager, pilih semua folder dan file yang ada (seperti `mods`, `config`, `world`, `server.jar`, dll.) dan Hapus semuanya.
+3. Unggah dan Buka Arsip Server Pack
+   - Di File Manager yang sekarang kosong, klik "Upload" dan pilih file `.zip` Server Pack yang Anda unduh.
+   - Setelah unggahan selesai, klik ikon tiga titik (`...`) di sebelah file `.zip` dan pilih "Unarchive" atau "Decompress". Ini akan mengekstrak isi modpack ke server Anda.
+4. Periksa Konfigurasi Startup Ini adalah langkah paling penting.
+   - Lihat di dalam folder yang baru diekstrak dan temukan nama file `.jar` server. Biasanya ini adalah file Forge atau Fabric dengan nama panjang, contohnya: `forge-1.19.2-43.2.0.jar`.
+   - Buka tab "Startup" di Pterodactyl.
+   - Di kolom "Server JAR File", ganti `server.jar` (atau apa pun default-nya) dengan nama file `.jar` yang sama persis dari modpack Anda. Contoh: `forge-1.19.2-43.2.0.jar`.
+5. Setujui EULA (Jika Perlu) Beberapa server pack mungkin mengharuskan Anda menyetujui EULA secara manual. Buka file `eula.txt`, ubah `eula=false` menjadi `eula=true`, dan simpan.
+6. Mulai Server Kembali ke "Console" dan klik "Start". Start pertama kali untuk modpack besar bisa sangat lambat (5-15 menit), jadi bersabarlah. Pantau konsol untuk melihat kemajuannya.
+
+**Untuk Pemain**
+
+Pemain harus mengunduh dan menginstal modpack dengan versi yang sama persis menggunakan aplikasi launcher seperti Aplikasi CurseForge, Prism Launcher, ATLauncher, atau Aplikasi Modrinth agar dapat bergabung.

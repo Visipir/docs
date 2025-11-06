@@ -1,0 +1,35 @@
+---
+title: "Menginstal Plugin"
+description: "Panduan ini akan menunjukkan cara menambahkan plugin ke server Minecraft Anda."
+icon: "plug"
+---
+
+**Tipe Server yang Kompatibel**
+
+Plugin HANYA berfungsi di server yang mendukungnya, seperti Paper, Spigot, Bukkit, atau Purpur. Plugin TIDAK akan berfungsi di server Minecraft Vanilla (versi resmi dari Mojang).
+
+> Pastikan tipe server Anda diatur dengan benar di tab "Server Type" di panel Anda.
+
+**Langkah-langkah Menginstal Plugin**
+
+1. Cari dan Unduh Plugin Unduh file plugin yang Anda inginkan dari sumber tepercaya. File plugin selalu memiliki ekstensi `.jar`.
+
+- Sumber Tepercaya: SpigotMC, Modrinth, BukkitDev (curseforge).
+- Peringatan: Hindari mengunduh dari situs web acak untuk mencegah malware.
+
+2. Buka File Manager Di Panel Pterodactyl Anda, navigasikan ke server Anda dan klik tab "File Manager".
+3. Navigasi ke Folder `plugins` Cari dan buka folder bernama `plugins`.
+
+- Jika folder ini tidak ada, kemungkinan tipe server Anda salah (bukan Paper/Spigot). Anda dapat mencoba membuatnya secara manual dengan mengklik "New Folder".
+
+4. Unggah File Plugin Di dalam folder `plugins`, klik tombol "Upload" dan pilih file `.jar` plugin yang Anda unduh. Tunggu hingga unggahan selesai.
+5. Restart Server Kembali ke halaman "Console" dan klik "Restart". Server harus di-restart untuk memuat plugin baru.
+
+**Verifikasi dan Konfigurasi**
+
+- Verifikasi:
+  - Perhatikan log Konsol saat server menyala. Anda akan melihat pesan seperti `[NamaPlugin] enabling...`.
+  - Masuk ke dalam game dan ketik perintah `/plugins` atau `/pl`. Plugin yang aktif akan muncul di daftar.
+- Konfigurasi:
+  - Setelah server berjalan sekali dengan plugin, folder konfigurasi untuknya akan otomatis dibuat di dalam folder `plugins` (misalnya, `/plugins/EssentialsX/`).
+  - Anda dapat mengedit file `config.yml` di dalam folder tersebut untuk mengubah pengaturan plugin.

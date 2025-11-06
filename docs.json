@@ -60,11 +60,27 @@
         "language": "id",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Memulai",
             "pages": [
               "id/index",
               "id/quickstart",
               "id/development"
+            ]
+          },
+          {
+            "group": "Memulai",
+            "pages": [
+              "id/penagihan/membeli-produk"
+            ]
+          },
+          {
+            "group": "Minecraft",
+            "pages": [
+              "id/minecraft/mode-offline",
+              "id/minecraft/menghubungkan-domain",
+              "id/minecraft/memasang-plugins",
+              "id/minecraft/memasang-mods",
+              "id/minecraft/memasang-modpack"
             ]
           }
         ]

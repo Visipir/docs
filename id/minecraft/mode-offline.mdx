@@ -1,0 +1,28 @@
+---
+title: "Mode Offline"
+description: "Dokumentasi ini menjelaskan cara mengubah server Anda ke mode offline untuk mengizinkan pemain dengan klien non-premium (bajakan) untuk bergabung."
+---
+
+## ⚠️️ PERINGATAN PENTING
+
+Mengaktifkan mode offline sangat berisiko dan tidak disarankan untuk server publik. Pahami risikonya:
+
+1. **Keamanan Rendah:** Siapa pun dapat login dengan nama pengguna apa pun, termasuk nama pengguna admin.
+2. **Tidak Ada Skin:** Skin pemain tidak akan berfungsi secara default.
+3. **Masalah Plugin:** Beberapa plugin keamanan dan manajemen pemain mungkin tidak berfungsi dengan benar.
+
+**Gunakan dengan risiko Anda sendiri.**
+
+**Langkah-langkah:**
+
+1. Login & Pilih Server Log masuk ke Panel Pterodactyl Anda dan pilih server Minecraft yang ingin Anda ubah.
+2. Buka File Manager Di menu navigasi kiri, klik "File Manager".
+3. Cari dan Edit [server.properties](http://server.properties) Temukan file [server.properties](http://server.properties) di daftar file dan klik untuk membuka editor.
+4. Ubah Pengaturan online-mode Temukan baris online-mode=true dan ubah nilainya menjadi false.
+
+```properties server.properties
+online-mode=false
+```
+
+6. Klik tombol "Save Content" untuk menyimpan perubahan Anda.
+7. Kembali ke halaman "Console" dan klik "Restart". Server harus di-restart agar perubahan dapat diterapkan.
